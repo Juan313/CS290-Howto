@@ -1,99 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>API HOW-TO
-    </title>
+    <title>API HOW-TO by Juan Du</title>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
   </head>
-  <body> Hello world!  Welcome to Juan's API How-to page!
-    <script>
-  var GoogleAuth;
-  var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
-  function handleClientLoad() {
-    // Load the API's client and auth2 modules.
-    // Call the initClient function after the modules load.
-    gapi.load('client:auth2', initClient);
-  }
+  <body>
+    <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo"><strong>API How-to page</strong> by Juan Du</a>
+          <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="generic.html">Generic</a>
+            <a href="elements.html">Elements</a>
+          </nav>
+          <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+      </header>
+      <!-- Banner -->
+  			<section id="banner">
+  				<div class="inner">
+  					<header>
+  						<h1>Google Cloud Prediction API How-to Guide</h1>
+  					</header>
 
-  function initClient() {
-    // Retrieve the discovery document for version 3 of Google Drive API.
-    // In practice, your app can retrieve one or more discovery documents.
-    var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+  					<div class="flex ">
+              <a href=#setup>
+  						<div>
+  							<span class="icon fa-car"></span>
+  							<h3>Setup</h3>
+  							<p>The setup to get started</p>
+  						</div></a>
 
-    // Initialize the gapi.client object, which app uses to make API requests.
-    // Get API key and client ID from API Console.
-    // 'scope' field specifies space-delimited list of access scopes.
-    gapi.client.init({
-        'apiKey': 'AIzaSyC8CxdisJqDaPp_eQl6j9M1yrh5H6GFQzo',
-        'discoveryDocs': [discoveryUrl],
-        'clientId': '879715850906-qs24o9ha54dof58nlmj1lb8t15tqov8j.apps.googleusercontent.com',
-        'scope': SCOPE
-    }).then(function () {
-      GoogleAuth = gapi.auth2.getAuthInstance();
+              <a href="training.html">
+  						<div>
+  							<span class="icon fa-camera"></span>
+  							<h3>Training the model</h3>
+  							<p>How to use data set to train a model</p>
+  						</div>
+            </a>
 
-      // Listen for sign-in state changes.
-      GoogleAuth.isSignedIn.listen(updateSigninStatus);
+            <a href="predict.html">
+              <div>
+                <span class="icon fa-camera"></span>
+                <h3>Prediction</h3>
+                <p>How to make predicion</p>
+              </div></a>
 
-      // Handle initial sign-in state. (Determine if user is already signed in.)
-      var user = GoogleAuth.currentUser.get();
-      setSigninStatus();
+              <a href="demo.html">
+  						<div>
+  							<span class="icon fa-bug"></span>
+  							<h3>Demo</h3>
+  							<p>A digit recognition app</p>
+  						</div></a>
 
-      // Call handleAuthClick function when user clicks on
-      //      "Sign In/Authorize" button.
-      $('#sign-in-or-out-button').click(function() {
-        handleAuthClick();
-      }); 
-      $('#revoke-access-button').click(function() {
-        revokeAccess();
-      }); 
-    });
-  }
+  					</div>
 
-  function handleAuthClick() {
-    if (GoogleAuth.isSignedIn.get()) {
-      // User is authorized and has clicked 'Sign out' button.
-      GoogleAuth.signOut();
-    } else {
-      // User is not signed in. Start Google auth flow.
-      GoogleAuth.signIn();
-    }
-  }
+  					<footer>
+  						<a href="#setup" class="button">Get Started</a>
+  					</footer>
+  				</div>
+  			</section>
+        <!-- Three -->
+    			<section id="three" class="wrapper align-center"><a name="setup"></a>
+    				<div class="inner">
+    					<div >
+    						<article>
+    							<div class="image round">
+    								<img src="images/pic01.jpg" alt="Pic 01" />
+    							</div>
+    							<header>
+    								<h3>Setup</h3>
+    							</header>
+    							<p class="mainbody">Morbi in sem quis dui placerat ornare. Pellentesquenisi euismod in, pharetra a, ultricies in diam sed arcu. Cras consequat  egestas augue vulputate.</p>
+                  <p class="mainbody">blah blah blah </p>
+                  <footer>
+    								<a href="training.html" class="button special small">Next</a>
+    							</footer>
+    						</article>
 
-  function revokeAccess() {
-    GoogleAuth.disconnect();
-  }
+    					</div>
+    				</div>
+    			</section>
 
-  function setSigninStatus(isSignedIn) {
-    var user = GoogleAuth.currentUser.get();
-    var isAuthorized = user.hasGrantedScopes(SCOPE);
-    if (isAuthorized) {
-      $('#sign-in-or-out-button').html('Sign out');
-      $('#revoke-access-button').css('display', 'inline-block');
-      $('#auth-status').html('You are currently signed in and have granted ' +
-          'access to this app.');
-    } else {
-      $('#sign-in-or-out-button').html('Sign In/Authorize');
-      $('#revoke-access-button').css('display', 'none');
-      $('#auth-status').html('You have not authorized this app or you are ' +
-          'signed out.');
-    }
-  }
-
-  function updateSigninStatus(isSignedIn) {
-    setSigninStatus();
-  }
-</script>
-
-<button id="sign-in-or-out-button"
-        style="margin-left: 25px">Sign In/Authorize</button>
-<button id="revoke-access-button"
-        style="display: none; margin-left: 25px">Revoke access</button>
-
-<div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" 
-        onload="this.onload=function(){};handleClientLoad()" 
-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>
+    
   </body>
-</html> 
+</html>
