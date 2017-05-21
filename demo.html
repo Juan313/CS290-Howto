@@ -148,9 +148,10 @@
 										},
 				}).then(function (resp) {
 						var p = document.createElement('p');
+						//
 						var text = document.createTextNode(resp.result.outputLabel);
 						p.appendChild(text);
-						var element = document.getElementByTag("body");
+						var element = document.getElementsByTagName("body")[0];
 						element.appendChild(p);
 
 						console.log(resp.result.outputLabel);
