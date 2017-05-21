@@ -147,8 +147,10 @@
   									}
 										},
 				}).then(function (resp) {
-						console.log("here it is");
-						console.log(resp);
+						var p = document.createElement('p');
+						var text = document.createTextNode(resp.result.outputLabel);
+						p.appendChild(text);
+						console.log(resp.result.outputLabel);
 				});
 
 
