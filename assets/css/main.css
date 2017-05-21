@@ -1639,6 +1639,9 @@
 		color: #6cc091;
 		text-decoration: underline;
 	}*/
+		a:-webkit-any-link{
+			text-decoration:none !important;
+		}
 
 		a:hover {
 			text-decoration: none;
