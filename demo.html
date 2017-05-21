@@ -49,7 +49,6 @@
 			</section>
 
 
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -69,5 +68,20 @@
 					onload="this.onload=function(){};handleClientLoad()"
 					onreadystatechange="if (this.readyState === 'complete') this.onload()">
 			</script>
+
+			<section id="four" class="wrapper">
+				<div class="inner"><header class="align-center">
+					<h2>CANVAS</h2>
+
+				</header></div>
+				<canvas id="canvas" width = "500" height = "500"></canvas>
+				<br>
+				<div class="align-center">
+				<ul class="actions">
+					<li><a class="button special" onclick="clearCanvas()">Clear Canvas</a></li>
+					<li><a href="#" class="button">Make prediction</a></li>
+				</ul></div>
+			</section>
+			<script src="assets/js/paint.js"></script>
 	</body>
 </html>
