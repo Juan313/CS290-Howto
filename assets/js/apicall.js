@@ -75,10 +75,10 @@ function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
 
-function makeApiCall() {
+function makeApiCall(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
-	var csvInstance = [1,0,1,1,1,1,0];
+	
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
 			'method': "POST",
