@@ -25,6 +25,10 @@
 		padding-bottom:20px;
 		align-center:
 	}
+.canvas2{
+		width: 16px;
+		height:16px;
+	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;

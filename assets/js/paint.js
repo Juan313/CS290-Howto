@@ -122,6 +122,39 @@ function compress(original){
   }
   console.log(csv_zoom_in);
   csvInstance=averageFilter(csv_zoom_in,size);
+  /*
+   experiment
+  */
+  var canvas2 = document.createElement("canvas"),
+      ctx = canvas2.getContext("2d"),
+      img = [];
+      canvas2.setAttribute("id", "canvas2");
+  for (var k=0; k<csvInstance.length; k+=1){
+    if(csvInstance[k]===1){
+      img.push(0);
+      img.push(0);
+      img.push(0);
+      img.push(255);
+    } else {
+      img.push(0);
+      img.push(0);
+      img.push(0);
+      img.push(0);
+    }
+  }
+
+  // Get a pointer to the current location in the image.
+  var palette = ctx.getImageData(0,0,16,16); //x,y,w,h
+  // Wrap your array as a Uint8ClampedArray
+  palette.data.set(new Uint8ClampedArray(img)); // assuming values 0..255, RGBA, pre-mult.
+  // Repost the data.
+  ctx.putImageData(palette,0,0);
+  var element = document.getElementsByTagName("body")[0];
+  element.appendChild(canvas2);
+  /*
+   experiment
+  */
+
   return csvInstance;
 }
 
