@@ -70,6 +70,7 @@ function predict(){
     return;
   } else {
     var csv = compress(csvOriginal);
+    console.log(csv.toString());
     makeApiCall(csv);
   }
 
