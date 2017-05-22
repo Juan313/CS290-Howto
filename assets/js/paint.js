@@ -1,7 +1,7 @@
 // reference: https://www.youtube.com/watch?v=RNep4_QpIM0&list=PL5UFsTza4wWQRiguVuAuSsnhZK5NIXZEO
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-context.lineWidth = 20;
+context.lineWidth = 25;
 var down = false;
 var data;
 var csvOriginal =[];
