@@ -122,6 +122,7 @@ function compress(original){
   }
   console.log(csv_zoom_in);
   csvInstance=averageFilter(csv_zoom_in,size);
+  return csvInstance;
 }
 
 function averageFilter(array,size){
