@@ -167,7 +167,7 @@ function averageFilter(array,size){
   var thumbheight = 16;
   var xscale = (thumbwidth+0.0) / width;
   var yscale = (thumbheight+0.0) / height;
-  var threshold = 0.65 / (xscale * yscale);
+  var threshold = 0.4 / (xscale * yscale);
   var yend = 0.0;
   for (var f = 0; f < thumbheight; f+=1) // y on output
   {
