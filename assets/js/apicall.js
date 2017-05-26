@@ -1,5 +1,6 @@
 var GoogleAuth;
-var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
+//var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
+var SCOPE = "https://www.googleapis.com/auth/prediction";
 function handleClientLoad() {
 // Load the API's client and auth2 modules.
 // Call the initClient function after the modules load.
