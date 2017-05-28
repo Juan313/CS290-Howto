@@ -1,6 +1,5 @@
 var GoogleAuth;
-//var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
-var SCOPE = "https://www.googleapis.com/auth/prediction";
+var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
 function handleClientLoad() {
 // Load the API's client and auth2 modules.
 // Call the initClient function after the modules load.
@@ -96,27 +95,6 @@ function makeApiCall(csvInstance) {
 			var element = document.getElementsByTagName("body")[0];
 			element.appendChild(p);
 
-			console.log(resp.result.outputLabel);
-	});
-
-
-}
-function trainModel() {
-	var project = "polar-winter-167323";
-	var id = "handwritten digit";
-
-	gapi.client.request({
-
-			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
-
-			'method': "POST",
-			'body': {
- 							"id": "language-identifier",
- 							"storageDataLocation": "quickstart-1465256213/language_id.txt"
-							}
-		  },
-	}).then(function (resp) {
-			
 			console.log(resp.result.outputLabel);
 	});
 
