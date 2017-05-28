@@ -111,7 +111,7 @@ function trainModel() {
 		 "storageDataLocation": "quickstart-1465256213/language_id.txt"
 		}
 
-			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project"/trainedmodels",
+			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
 			'method': "POST",
 			'body': {
 			 		"id": "language-identifier",
