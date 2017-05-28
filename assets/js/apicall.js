@@ -127,7 +127,7 @@ function getTrainingStatus() {
 			'method': "GET",
 
 	}).then(function (resp) {
-			console.log(JSON.parse(resp));
+			console.log(resp["trainingStatus"]);
 
 	});
 }
