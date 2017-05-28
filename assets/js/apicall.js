@@ -101,18 +101,33 @@ function makeApiCall(csvInstance) {
 
 function trainModel() {
 	var project = "polar-winter-167323";
-	var id = "handwritten digit";
 
 	gapi.client.request({
 
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
 			'method': "POST",
 			'body': {
-			 		"id": "language-identifier",
-			 		"storageDataLocation": "quickstart-1494460531/language_id.txt"
+			 		"id": "handwritten digit",
+			 		"storageDataLocation": "handwritten_digit/output.txt"
 				},
 	}).then(function (resp) {
-
+      while(getTrainingStatus()!="DONE"){
+				getTrainingStatus();
+			}
 			console.log("Model training success.");
+	});
+}
+
+function getTrainingStatus() {
+	var project = "polar-winter-167323";
+  var id = "handwritten digit";
+	gapi.client.request({
+
+			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id,
+			'method': "GET",
+
+	}).then(function (resp) {
+			return (resp["trainingStatus"]);
+
 	});
 }
