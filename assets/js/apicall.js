@@ -109,16 +109,10 @@ function trainModel() {
 			'method': "POST",
 			'body': {
 			 		"id": "language-identifier",
-			 		"storageDataLocation": "quickstart-1465256213/language_id.txt"
+			 		"storageDataLocation": "quickstart-1494460531/language_id.txt"
 				},
 	}).then(function (resp) {
-			var p = document.createElement('p');
-			//
-			var text = document.createTextNode(resp.result.outputLabel);
-			p.appendChild(text);
-			var element = document.getElementsByTagName("body")[0];
-			element.appendChild(p);
 
-			console.log(resp.result.outputLabel);
+			console.log("Model training success.");
 	});
 }
