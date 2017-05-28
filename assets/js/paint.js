@@ -1,7 +1,7 @@
 // reference: https://www.youtube.com/watch?v=RNep4_QpIM0&list=PL5UFsTza4wWQRiguVuAuSsnhZK5NIXZEO
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-context.lineWidth = 25;
+context.lineWidth = 30;
 var down = false;
 var data;
 var csvOriginal =[];
@@ -70,6 +70,7 @@ function predict(){
     return;
   } else {
     var csv = compress(csvOriginal);
+    console.log(csv.toString());
     makeApiCall(csv);
   }
 
@@ -166,7 +167,7 @@ function averageFilter(array,size){
   var thumbheight = 16;
   var xscale = (thumbwidth+0.0) / width;
   var yscale = (thumbheight+0.0) / height;
-  var threshold = 0.55 / (xscale * yscale);
+  var threshold = 0.35 / (xscale * yscale);
   var yend = 0.0;
   for (var f = 0; f < thumbheight; f+=1) // y on output
   {
