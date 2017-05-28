@@ -104,13 +104,19 @@ function trainModel() {
 	var id = "handwritten digit";
 
 	gapi.client.request({
-			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
+
+
+		{
+		 "id": "language-identifier",
+		 "storageDataLocation": "quickstart-1465256213/language_id.txt"
+		}
+
+			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project"/trainedmodels",
 			'method': "POST",
 			'body': {
-								"input": {
-									"csvInstance": csvInstance
-							}
-							},
+			 		"id": "language-identifier",
+			 		"storageDataLocation": "quickstart-1465256213/language_id.txt"
+				},
 	}).then(function (resp) {
 			var p = document.createElement('p');
 			//
