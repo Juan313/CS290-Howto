@@ -31,8 +31,8 @@
               <!--<a href=#setup>-->
   						<div><a href=#setup>
   							<span class="icon fa-car"></span>
-  							<h3>Setup</h3>
-  							 <p>The setup to get started</p></a>
+  							<h3>Overview</h3>
+  							 <p>Introduction and setup</p></a>
   						</div>
 
 
@@ -73,10 +73,44 @@
     								<img src="images/pic01.jpg" alt="Pic 01" />
     							</div>
     							<header>
-    								<h3>Setup</h3>
+    								<h3>GOOGLE PREDICTION API</h3>
     							</header>
-    							<p class="mainbody">Morbi in sem quis dui placerat ornare. Pellentesquenisi euismod in, pharetra a, ultricies in diam sed arcu. Cras consequat  egestas augue vulputate.</p>
-                  <p class="mainbody">blah blah blah </p>
+
+    							<p class="mainbody">"Google Cloud Prediction API provides a RESTful API to build Machine Learning models. Prediction's cloud-based machine learning tools can help analyze your data to add various features to your applications, such as customer sentiment analysis, spam detection, recommendation systems, and more."</p>
+                  <ol class="mainbody">
+                    <li>Follow the "Before you begin" secion of <a href="https://cloud.google.com/prediction/docs/quickstart" target="_blank">this link</a> to create a cloud platform project.<br>
+                      <p class="mainbody">After you sign up for the Google Cloud Platform, you will be given $300 credit to spend on the Google Cloud Platform for the next 12 months.
+                                          You will need to provide credit card information and enabling billing for your project. But don't worry, they will not charge you without your consent.<br>
+                                        </p></li>
+                    <li>Once you sign up, you will be able to create your project. <br>
+                      <p class="mainbody"><center><img src="images/create_project.png" style="width: 70%; height: 70%" align="middle" /></center></p>
+                      <p>Then, click the + sign to create a project. You need to specify a project name, the system will generate a project ID for you.
+                        Please remember the project ID because you will need it for the API calls.
+                    <p class="mainbody"><center><img src="images/project_ID.png" style="width: 60%; height: 60%" align="middle" /></center></p></li>
+
+
+                    <li>Creating a bucket and upload your training data. <br>
+                      <p class="mainbody"><center><img src="images/create_bucket.png" style="width: 70%; height: 70%" align="middle" /></center></p>
+                      <p>One thing to be careful of is that the bucket name must be globally unique.</p>
+                      <p class="mainbody"><center><img src="images/bucket_unique.png" style="width: 70%; height: 70%" align="middle" /></center></p>
+                      <p>Once the bucket is created, you can begin uploading the training data</p>
+                      <p class="mainbody"><center><img src="images/upload_data.png" style="width: 70%; height: 70%" align="middle" /></center></p>
+                      <p>To train your model, you will need to specify the storageDataLocation variable which in my case will
+                      be handwritten_digit/output.txt. Nevermind the output.txt name, you probably want to give a more sensible name to your training data than mine.
+                      Since for my demo handwritten digit recognition program, I need to do some data manipulation to meet the csv format,
+                      it's actually the output from my C++ data cleansing program. I admit it's not the best name.</p>
+                    <li>Last but not the least: Authorizing request with OAuth 2.0
+                    <p>"Every request your application sends to the Google Prediction API must include an authorization token. The token also identifies your application to Google."<br><br>
+                       First, go to <a href="https://console.developers.google.com/" target="_blank">API Manager</a> to enable prediction API and obtain API key and client ID </p>
+
+                    <p class="mainbody"><center><img src="images/enable_API.png" style="width: 70%; height: 70%" title="Enable Google Prediction API" /></center></p>
+
+                    <p class="mainbody">Search for "Prediction API" in the search bar"<center><img src="images/search_prediction.png" style="width: 70%; height: 70%" title="Enable Google Prediction API" /></center></p>
+                    <p class="mainbody">Select prediction API and enable it:<center><img src="images/click_enable.png" style="width: 70%; height: 70%" title="Enable Google Prediction API" /></center></p>
+                    </li>
+                  </ol>
+
+
                   <footer>
     								<a href="training.html" class="button special small">Next</a>
     							</footer>
