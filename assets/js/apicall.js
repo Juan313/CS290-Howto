@@ -117,7 +117,7 @@ function trainModel() {
 			console.log("Model training success.");
 	});
 }
-
+var response;
 function getTrainingStatus() {
 	var project = "polar-winter-167323";
   var id = "handwritten digit";
@@ -127,7 +127,7 @@ function getTrainingStatus() {
 			'method': "GET",
 
 	}).then(function (resp) {
-			console.log(resp["trainingStatus"]);
+			response = resp;
 
 	});
 }
