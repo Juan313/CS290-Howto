@@ -79,7 +79,7 @@ setSigninStatus();
 function makeApiCall(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
-	
+
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
 			'method': "POST",
@@ -96,6 +96,27 @@ function makeApiCall(csvInstance) {
 			var element = document.getElementsByTagName("body")[0];
 			element.appendChild(p);
 
+			console.log(resp.result.outputLabel);
+	});
+
+
+}
+function trainModel() {
+	var project = "polar-winter-167323";
+	var id = "handwritten digit";
+
+	gapi.client.request({
+
+			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
+
+			'method': "POST",
+			'body': {
+ 							"id": "language-identifier",
+ 							"storageDataLocation": "quickstart-1465256213/language_id.txt"
+							}
+		  },
+	}).then(function (resp) {
+			
 			console.log(resp.result.outputLabel);
 	});
 
