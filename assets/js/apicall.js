@@ -97,6 +97,28 @@ function makeApiCall(csvInstance) {
 
 			console.log(resp.result.outputLabel);
 	});
+}
 
+function trainModel() {
+	var project = "polar-winter-167323";
+	var id = "handwritten digit";
 
+	gapi.client.request({
+			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
+			'method': "POST",
+			'body': {
+								"input": {
+									"csvInstance": csvInstance
+							}
+							},
+	}).then(function (resp) {
+			var p = document.createElement('p');
+			//
+			var text = document.createTextNode(resp.result.outputLabel);
+			p.appendChild(text);
+			var element = document.getElementsByTagName("body")[0];
+			element.appendChild(p);
+
+			console.log(resp.result.outputLabel);
+	});
 }
