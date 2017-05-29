@@ -49,6 +49,10 @@ function getMousePos(canvas, evt) {
 
 function clearCanvas(){
   context.clearRect(0,0,canvas.width,canvas.height);
+  var myEle = document.getElementById("prediction");
+  if (myEle){
+    myEle.remove(0);
+  }
 }
 
 
@@ -124,7 +128,7 @@ function compress(original){
   console.log(csv_zoom_in);
   csvInstance=averageFilter(csv_zoom_in,size);
   /*
-  
+
   var canvas2 = document.createElement("canvas"),
       ctx = canvas2.getContext("2d"),
       img = [];

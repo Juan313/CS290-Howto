@@ -119,6 +119,7 @@ function makePrediction(csvInstance) {
 
 			var label = document.createTextNode(outputString);
 			node.appendChild(label);
+			node.setAttribute("id","prediction");
 			var element = document.getElementById("canvas_div");
 
 			element.appendChild(node);
