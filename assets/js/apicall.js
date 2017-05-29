@@ -130,7 +130,7 @@ function getTrainingStatus() {
 
 	}).then(function (resp) {
 		  response = resp;
-			status = JSON.parse(resp["body"])["trainingStatus"]);
+			status = JSON.parse(resp["body"])["trainingStatus"];
 			return status;
 
 	});
