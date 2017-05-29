@@ -62,7 +62,7 @@ if (isAuthorized) {
 	$('#revoke-access-button').css('display', 'inline-block');
 	$('#auth-status').html('You are currently signed in and have granted ' +
 			'access to this app.');
-	makeApiCall();
+	makePrediction();
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
 	$('#revoke-access-button').css('display', 'none');
@@ -75,7 +75,7 @@ function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
 
-function makeApiCall(csvInstance) {
+function makePrediction(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
 
@@ -126,7 +126,5 @@ function getTrainingStatus() {
 
 	}).then(function (resp) {
 			console.log("Training status is: " ,JSON.parse(resp["body"])["trainingStatus"]);
-
-
 	});
 }

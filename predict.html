@@ -1,90 +1,145 @@
-<!DOCTYPE HTML>
-<!--
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Generic - Projection by TEMPLATED</title>
-		<meta charset="utf-8" />
+  <head>
+    <title>API HOW-TO by Juan Du</title>
+    <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="subpage">
+  </head>
+  <body>
+    <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <a href="index.html" class="logo"><strong>API How-to page</strong> by Juan Du</a>
+          <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="training.html">Training</a>
+            <a href="predict.html">Predict</a>
+            <a href="demo.html">Demo</a>
+          </nav>
+          <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+      </header>
+      <!-- Banner -->
+  			<section id="banner">
+  				<div class="inner">
+  					<header>
+  						<h1>Google Cloud Prediction API How-to Guide</h1>
+  					</header>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
-					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="generic.html">Generic</a>
-						<a href="elements.html">Elements</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
+  					<div class="flex ">
+              <!--<a href=#setup>-->
+  						<div style="visibility: hidden"><a href="index.html#setup">
+  							<span class="icon fa-car"></span>
+  							<h3>Overview</h3>
+  							 <p>Introduction and setup</p></a>
+  						</div>
 
-		<!-- Three -->
-			<section id="three" class="wrapper">
-				<div class="inner">
-					<header class="align-center">
-						<h2>Nunc Dignissim</h2>
-						<p>Aliquam erat volutpat nam dui </p>
-					</header>
-					<div class="image round left">
-						<img src="images/pic01.jpg" alt="Pic 01" />
-					</div>
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
 
-					<div class="image round right">
-						<img src="images/pic02.jpg" alt="Pic 02" />
-					</div>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+  						<div style="visibility: hidden"><a href="training.html#training">
+  							<span class="icon fa-camera"></span>
+  							<h3>Training model</h3>
+  							<p>Use dataset to train a model</p></a>
+  						</div>
 
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
 
-				</div>
-			</section>
+            <!--<a href="predict.html">-->
+              <div><a href="predict.html#predict">
+                <span class="icon fa-camera"></span>
+                <h3>Prediction</h3>
+                <p>How to make predicion</p></a>
+              </div>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
+              <!--<a href="demo.html">-->
+  						<div><a href="demo.html">
+  							<span class="icon fa-bug"></span>
+  							<h3>Demo</h3>
+  							<p>A digit recognition app</p></a>
+  						</div>
 
-					<h3>Get in touch</h3>
+  					</div>
 
-					<form action="#" method="post">
+  				</div>
+  			</section>
+        <!-- Three -->
+    			<section id="three" class="wrapper align-center"><a name="predict"></a>
+    				<div class="inner">
+    					<div >
+    						<article>
+    							<div class="image round">
+    								<center><img src="images/pic03.png" style="width: 15%; height: 15%" /></center>
+    							</div>
+    							<header>
+    								<h3>Making a prediction</h3>
+    							</header>
 
-						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input value="Send Message" class="button alt" type="submit"></li>
-						</ul>
-					</form>
+                  <ol class="mainbody">
 
-					<div class="copyright">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-					</div>
+										<li>Gather your data to make a prediction
+											<p class="mainbody">Unlike the data for training the model, the prediction data shall not include the answer key also the csv
+											data are not enclosed by double quotation mark as the training data. For the demo application, I created an array called csvInstance, which is used
+											to store the pixel location of the digit and it will be passed to the makePrediction function and further pass into the request to make Google Prediction API call.
+											<br>For example csvInstance = [<br>
+											 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,<br>
+											 0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,<br>
+											 0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,<br>
+											 0,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,<br>
+											 0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,<br>
+											 0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,<br>
+											 0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,<br>
+											 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,<br>
+											 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,<br>
+											 1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,<br>
+											 0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0]<br>
+										  The demo app shall return "FOUR"  </p>
+										</li>
 
-				</div>
-			</footer>
+                    <li>Code snipet for prediction call
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                      <pre><code>
+	function makePrediction(csvInstance) {
+	var project = "polar-winter-167323";
+	var id = "handwritten digit";
 
-	</body>
+	gapi.client.request({
+		'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
+		'method': "POST",
+		'body': {
+							"input": {
+								"csvInstance": csvInstance
+							}
+						},
+	}).then(function (resp) {
+			var p = document.createElement('p');
+			//
+			var text = document.createTextNode(resp.result.outputLabel);
+			p.appendChild(text);
+			var element = document.getElementsByTagName("body")[0];
+			element.appendChild(p);
+
+			console.log(resp.result.outputLabel);
+			});
+	}
+                      </code></pre>
+</li>
+
+
+</ol>
+                  <footer>
+										<a href="training.html#training" class="button special">Prev</a>
+    								<a href="predict.html#predict" class="button special">Next</a>
+    							</footer>
+    						</article>
+
+    					</div>
+    				</div>
+    			</section>
+
+
+  </body>
 </html>
