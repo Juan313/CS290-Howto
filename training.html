@@ -172,6 +172,23 @@
 
                     <li>Now we can finally train the data <br>
 
+                    <pre><code>
+                      function trainModel() {
+                      	var project = "polar-winter-167323";
+
+                      	gapi.client.request({
+
+                      			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
+                      			'method': "POST",
+                      			'body': {
+                      			 		"id": "handwritten digit",
+                      			 		"storageDataLocation": "handwritten_digit/output.txt"
+                      				},
+                      	}).then(function (resp) {
+                      			console.log("Training model ...");
+                      	});
+                      }
+                      </code></pre>
                     </li>
                   </ol>
 

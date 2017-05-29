@@ -111,14 +111,10 @@ function trainModel() {
 			 		"storageDataLocation": "handwritten_digit/output.txt"
 				},
 	}).then(function (resp) {
-      while(getTrainingStatus()!="DONE"){
-				getTrainingStatus();
-			}
-			console.log("Model training success.");
+			console.log("Training model ...");
 	});
 }
-var response;
-var status;
+
 
 function getTrainingStatus() {
 	var project = "polar-winter-167323";
@@ -129,9 +125,8 @@ function getTrainingStatus() {
 			'method': "GET",
 
 	}).then(function (resp) {
-		  response = resp;
-			status = JSON.parse(resp["body"])["trainingStatus"];
-			return status;
+			console.log("Training status is: " JSON.parse(resp["body"])["trainingStatus"]);
+
 
 	});
 }
