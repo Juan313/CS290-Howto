@@ -88,13 +88,40 @@ function makePrediction(csvInstance) {
 							}
 							},
 	}).then(function (resp) {
-			var p = document.createElement('p');
-			//
-			var label = document.createTextNode(resp.result.outputMulti[0].label);
-			p.appendChild("The prediction is" + label +" with confidence level of " +resp.result.outputMulti[0].score );
-			var element = document.getElementById("canvas");
+			var node = document.createElement('p');
+		  var confidence;
+			var index;
+			switch(resp.result.outputLabel) {
+				case ("ZERO"): index = 0;
+											break;
+				case ("ONE"): index = 1;
+											break;
+				case ("TWO"): index = 2;
+												break;
+				case ("THREE"): index = 3;
+											break;
+				case ("FOUR"): index = 4;
+											break;
+				case ("FIVE"): index = 5;
+												break;
+				case ("SIX"): index = 6;
+											break;
+				case ("SEVEN"): index = 7;
+											break;
+				case ("EIGHT"): index = 8;
+												break;
+				case ("NINE"): index = 9;
+											break;
 
-			element.insertAdjacentElement("afterend", p);
+			}
+			var outputString = "The prediction is" + resp.result.outputLabel +
+			    " with confidence level of " +resp.result.outputMulti[index].score ;
+
+			var label = document.createTextNode(outputString);
+			node.appendChild(label);
+			var element = document.getElementById("canvas_div");
+
+			element.appendChild(node);
 
 
 			console.log(resp.result.outputLabel);
