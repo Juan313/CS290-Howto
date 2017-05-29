@@ -124,8 +124,7 @@ function compress(original){
   console.log(csv_zoom_in);
   csvInstance=averageFilter(csv_zoom_in,size);
   /*
-   experiment
-  */
+  
   var canvas2 = document.createElement("canvas"),
       ctx = canvas2.getContext("2d"),
       img = [];
@@ -152,8 +151,7 @@ function compress(original){
   ctx.putImageData(palette,0,0);
   var element = document.getElementsByTagName("body")[0];
   element.appendChild(canvas2);
-  /*
-   experiment
+
   */
 
   return csvInstance;

@@ -90,10 +90,12 @@ function makePrediction(csvInstance) {
 	}).then(function (resp) {
 			var p = document.createElement('p');
 			//
-			var text = document.createTextNode(resp.result.outputLabel);
-			p.appendChild(text);
-			var element = document.getElementsByTagName("body")[0];
-			element.appendChild(p);
+			var label = document.createTextNode(resp.result.outputMulti[0].label);
+			p.appendChild("The prediction is" + label +" with confidence level of " +resp.result.outputMulti[0].score );
+			var element = document.getElementById("canvas");
+
+			element.insertAdjacentElement("afterend", p);
+
 
 			console.log(resp.result.outputLabel);
 	});
