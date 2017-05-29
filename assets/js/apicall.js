@@ -64,10 +64,9 @@ if (isAuthorized) {
 			'access to this app.');
 	makePrediction();
 } else {
-	$('#sign-in-or-out-button').html('Sign In/Authorize');
+	$('#sign-in-or-out-button').html('');
 	$('#revoke-access-button').css('display', 'none');
-	$('#auth-status').html('You have not authorized this app or you are ' +
-			'signed out.');
+	$('#auth-status').html('');
 }
 }
 
