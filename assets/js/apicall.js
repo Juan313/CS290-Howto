@@ -125,7 +125,7 @@ function getTrainingStatus() {
 			'method': "GET",
 
 	}).then(function (resp) {
-			console.log("Training status is: " JSON.parse(resp["body"])["trainingStatus"]);
+			console.log("Training status is: " ,JSON.parse(resp["body"])["trainingStatus"]);
 
 
 	});
