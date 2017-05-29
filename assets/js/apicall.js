@@ -118,6 +118,8 @@ function trainModel() {
 	});
 }
 var response;
+var status;
+
 function getTrainingStatus() {
 	var project = "polar-winter-167323";
   var id = "handwritten digit";
@@ -128,7 +130,8 @@ function getTrainingStatus() {
 
 	}).then(function (resp) {
 		  response = resp;
-			console.log(JSON.parse(resp["body"])["trainingStatus"]);
+			status = JSON.parse(resp["body"])["trainingStatus"]);
+			return status;
 
 	});
 }
