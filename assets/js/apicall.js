@@ -60,8 +60,7 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
 if (isAuthorized) {
 	$('#sign-in-or-out-button').html('Sign out');
 	$('#revoke-access-button').css('display', 'inline-block');
-	$('#auth-status').html('You are currently signed in and have granted ' +
-			'access to this app.');
+	$('#auth-status').html('');
 	makePrediction();
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
