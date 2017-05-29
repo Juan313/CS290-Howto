@@ -65,7 +65,7 @@ if (isAuthorized) {
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
 	$('#revoke-access-button').css('display', 'none');
-	$('#auth-status').html('');
+	$('#auth-status').html(' ');
 }
 }
 

@@ -35,7 +35,7 @@
 						<p>by Juan Du</p>
 					</header>
 					<p>This handwritten digit recognition app combines all the previous steps in this tutorial and turn it into a working application.<br><br>
-					To test out the app, you are invited to draw the digit 0-9 in the black bordered box below by clicking and dragging your mouse <br><br>
+					To test out the app, you are invited to draw the <strong>digit 0-9 one digit at a time</strong> in the black bordered canvas below by clicking and dragging your mouse <br><br>
 					You can see the shape of the digit as you draw. Once you are happy with the shape, click the MAKE PREDICTION button. The application
 					should predict the digit you draw and give confidence level. You can make multiple predictions by clicking the "CLEAR CANVAS" button to start over. <br><br>
 				  You need to login your Google account to authorize the application. Don't worry, the app is not reading your data. It's just part of the authorization process to use Google Prediction API.
@@ -79,8 +79,9 @@
 			</div>
 				<div class="align-center">
 				<ul class="actions">
-					<li><a class="button special" onclick="clearCanvas()">Clear Canvas</a></li>
 					<li><a class="button" onclick ="predict()">Make prediction</a></li>
+					<li><a class="button special" onclick="clearCanvas()">Clear Canvas</a></li>
+
 				</ul></div>
 			</section>
 			<script src="assets/js/paint.js"></script>

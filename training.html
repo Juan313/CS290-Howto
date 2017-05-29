@@ -167,7 +167,9 @@
   }
                       </code></pre>
 
-                    <li>Now we can finally train the data <br>
+                    <li>Now we can finally train the data. For the demo application, it's trying to predict if the
+                      handwritten digit is 0, 1, 2 ... or 9. The modelType is "CLASSIFICATION". If you are trying to
+                      predict the housing price based on certain parameters, the modelType is "REGRESSION". <br>
 
                     <pre><code>
   function trainModel() {
@@ -179,13 +181,28 @@
   			'method': "POST",
   			'body': {
   			 		"id": "handwritten digit",
-  			 		"storageDataLocation": "handwritten_digit/output.txt"
+  			 		"storageDataLocation": "handwritten_digit/output.txt",
+                                        "modelType": "CLASSIFICATION"
   				},
   	}).then(function (resp) {
   			console.log("Training model ...");
   	});
   }
                       </code></pre>
+                      <p>The response body looks like this: </p>
+                      <pre><code>
+    {
+    "kind": "prediction#training",
+    "id": string,
+    "selfLink": string,
+    "storageDataLocation": string,
+    "storagePMMLLocation": string,
+    "modelType": string
+  }
+                      </pre></code>
+                      <p>Since there is no new information here other than repeated information. I didn't bother to get anything from the response. <br>
+                      Once thing to pay attention to though, the Training API doesn't tell you the status of the training. You have to call another API to see if training is complete.<br>
+                      For more information on the training API, see <a href="https://cloud.google.com/prediction/docs/reference/v1.6/trainedmodels/insert" target="_blank">Google Prediction API Documentation</a> for reference.</p>
                     </li>
 
                     <li>Checking the status of training<br>
@@ -203,6 +220,26 @@
 	});
 }
                       </code></pre>
+                      <p>If the training is successful, this API returns a Trainedmodels resource in the response body.</p>
+                      <pre><code>
+{
+  "kind": "prediction#training",
+  "id": string,
+  "selfLink": string,
+  "created": datetime,
+  "trainingComplete": datetime,
+  "modelInfo": {
+    "numberInstances": long,
+    "modelType": string,
+    "numberLabels": long,
+    "classificationAccuracy": string,
+    "classWeightedAccuracy": string,
+    "meanSquaredError": string
+  },
+  "trainingStatus": string
+}
+                      </pre></code>
+                      <p>It's a little tricky to access the "trainingStatus". I took me a while to figure it out. Here is how you do it.<code>JSON.parse(resp["body"])["trainingStatus"]</code><br> If everything goes well, the return should be a string "DONE". </p>
                     </li>
                   </ol>
                   <p>Here's my training data for the digit recognition app: <a href="output.txt" target="_blank">output.txt</a></p>
