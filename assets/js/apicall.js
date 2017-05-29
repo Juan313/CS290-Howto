@@ -114,7 +114,7 @@ function makePrediction(csvInstance) {
 											break;
 
 			}
-			var outputString = "The prediction is " + resp.result.outputLabel +
+			var outputString = "The prediction is " + index +
 			    " with confidence level of " +resp.result.outputMulti[index].score ;
 
 			var label = document.createTextNode(outputString);
