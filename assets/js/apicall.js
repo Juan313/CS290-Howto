@@ -113,6 +113,10 @@ function makePrediction(csvInstance) {
 											break;
 
 			}
+			var myEle = document.getElementById("prediction");
+  			if (myEle){
+  			  myEle.remove(0);
+ 			}
 			var outputString = "The prediction is " + index +
 			    " with confidence level of " +resp.result.outputMulti[index].score ;
 
