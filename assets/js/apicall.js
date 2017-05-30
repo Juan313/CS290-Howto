@@ -62,7 +62,7 @@ if (isAuthorized) {
 	$('#revoke-access-button').css('display', 'inline-block');
 	$('#auth-status').html('You are currently signed in and have granted ' +
 			'access to this app.');
-	makePrediction();
+	makeApiCall();
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
 	$('#revoke-access-button').css('display', 'none');
@@ -75,10 +75,10 @@ function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
 
-function makePrediction(csvInstance) {
+function makeApiCall(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
-
+	
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
 			'method': "POST",
@@ -88,73 +88,15 @@ function makePrediction(csvInstance) {
 							}
 							},
 	}).then(function (resp) {
-			var node = document.createElement('p');
-		  var confidence;
-			var index;
-			switch(resp.result.outputLabel) {
-				case ("ZERO"): index = 0;
-											break;
-				case ("ONE"): index = 1;
-											break;
-				case ("TWO"): index = 2;
-												break;
-				case ("THREE"): index = 3;
-											break;
-				case ("FOUR"): index = 4;
-											break;
-				case ("FIVE"): index = 5;
-												break;
-				case ("SIX"): index = 6;
-											break;
-				case ("SEVEN"): index = 7;
-											break;
-				case ("EIGHT"): index = 8;
-												break;
-				case ("NINE"): index = 9;
-											break;
-
-			}
-			var outputString = "The prediction is " + index +
-			    " with confidence level of " +resp.result.outputMulti[index].score ;
-
-			var label = document.createTextNode(outputString);
-			node.appendChild(label);
-			node.setAttribute("id","prediction");
-			var element = document.getElementById("canvas_div");
-
-			element.appendChild(node);
-
+			var p = document.createElement('p');
+			//
+			var text = document.createTextNode(resp.result.outputLabel);
+			p.appendChild(text);
+			var element = document.getElementsByTagName("body")[0];
+			element.appendChild(p);
 
 			console.log(resp.result.outputLabel);
 	});
-}
-
-function trainModel() {
-	var project = "polar-winter-167323";
-
-	gapi.client.request({
-
-			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels",
-			'method': "POST",
-			'body': {
-			 		"id": "handwritten digit",
-			 		"storageDataLocation": "handwritten_digit/output.txt"
-				},
-	}).then(function (resp) {
-			console.log("Training model ...");
-	});
-}
 
 
-function getTrainingStatus() {
-	var project = "polar-winter-167323";
-  var id = "handwritten digit";
-	gapi.client.request({
-
-			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id,
-			'method': "GET",
-
-	}).then(function (resp) {
-			console.log("Training status is: " ,JSON.parse(resp["body"])["trainingStatus"]);
-	});
 }
