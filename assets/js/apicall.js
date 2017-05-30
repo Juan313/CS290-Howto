@@ -156,3 +156,4 @@ function getTrainingStatus() {
 			console.log("Training status is: " ,JSON.parse(resp["body"])["trainingStatus"]);
 	});
 }
+
