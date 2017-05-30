@@ -1,5 +1,6 @@
 var GoogleAuth;
-var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
+//var SCOPE = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
+var SCOPE = "https://www.googleapis.com/auth/prediction";
 function handleClientLoad() {
 // Load the API's client and auth2 modules.
 // Call the initClient function after the modules load.
@@ -15,9 +16,9 @@ var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 // Get API key and client ID from API Console.
 // 'scope' field specifies space-delimited list of access scopes.
 gapi.client.init({
-		'apiKey': 'AIzaSyC8CxdisJqDaPp_eQl6j9M1yrh5H6GFQzo',
+		'apiKey': 'AIzaSyBhxlQUXE-F04zIfsYjfTLJ8XUadl7GTwg',
 		'discoveryDocs': [discoveryUrl],
-		'clientId': '879715850906-qs24o9ha54dof58nlmj1lb8t15tqov8j.apps.googleusercontent.com',
+		'clientId': '879715850906-os345pp9q0tka0sr172ircva5697b3so.apps.googleusercontent.com',
 		'scope': SCOPE
 }).then(function () {
 	GoogleAuth = gapi.auth2.getAuthInstance();
