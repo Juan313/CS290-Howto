@@ -75,7 +75,7 @@ function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
 
-function makeApiCall(csvInstance) {
+function makePrediction(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
 	
