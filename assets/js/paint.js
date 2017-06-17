@@ -1,3 +1,4 @@
+/*
 // reference: https://www.youtube.com/watch?v=RNep4_QpIM0&list=PL5UFsTza4wWQRiguVuAuSsnhZK5NIXZEO
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -64,6 +65,11 @@ function processData(imgData){
     }
   }
   console.log(maxVal);
+}
+
+function getCSV()
+{
+  return compress(csvOriginal);
 }
 
 function predict(){
@@ -157,7 +163,7 @@ function compress(original){
   element.appendChild(canvas2);
 
   */
-
+/*
   return csvInstance;
 }
 
@@ -207,3 +213,5 @@ function averageFilter(array,size){
   console.log(result);
   return result;
 }
+
+*/
