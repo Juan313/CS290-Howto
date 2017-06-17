@@ -62,7 +62,7 @@ if (isAuthorized) {
 	$('#sign-in-or-out-button').html('Sign out');
 	$('#revoke-access-button').css('display', 'inline-block');
 	$('#auth-status').html('');
-	makePrediction();
+	// makePrediction();
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
 	$('#revoke-access-button').css('display', 'none');
@@ -81,6 +81,7 @@ function makePrediction(csvInstance) {
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
 			'method': "POST",
+			'headers': { "authorization": 'bearer ' + getToken() },
 			'body': {
 								"input": {
 									"csvInstance": csvInstance
@@ -132,6 +133,76 @@ function makePrediction(csvInstance) {
 	});
 }
 
+function getToken() {
+	var pHeader = {"alg":"RS256","typ":"JWT"}
+	var sHeader = JSON.stringify(pHeader);
+	var pClaim = {};
+
+	pClaim.aud = "https://www.googleapis.com/oauth2/v4/token";
+	pClaim.scope = "https://www.googleapis.com/auth/prediction";
+	pClaim.iss = "handwritten-digit-recognition@polar-winter-167323.iam.gserviceaccount.com";
+	pClaim.exp = KJUR.jws.IntDate.get("now + 1hour");
+	pClaim.iat = KJUR.jws.IntDate.get("now");
+
+	var sClaim = JSON.stringify(pClaim);
+	var key = "-----BEGIN PRIVATE KEY-----\n" +
+	"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqEO1Lmx2SqlHJ\n" +
+	"HmqnaaekM0OEf0kQ15UbAJrEvEFuor4y/lOaEL3nwo2IFRxQmyd/0WKddB6Y2n4+\n" +
+	"hENI7/oM0PRWU9BmKLczETw9Ia34glKRufM/wePaKzqua7kkkGeCsiNBnu2y7MTC\n" +
+	"HHRtgaGrsxMfJu97tEycC3XlWBqU8Dldps1MwviXMg+xz88gyJPTy1xBXTOrwBw9\n" +
+	"gy13m3hNwcs01OlntlnjNyHJWH/PoHK43q/v29bfYID89yuZbWraoY5DLpqaghdz\n" +
+	"WfKHAALoK9RWn+ukSxdG4b3DYdRixBtDDVmmDLdAWmqKBv60+AMS0ERQD6cIurMr\n" +
+	"N9fwgjjNAgMBAAECggEALt3ITyAZl7v5GugXczhSGxWHg0GClLIcZJsXi6TnkUIn\n" +
+	"ES12Q4xekTpTv481xN7lFTvSJdsEvZHk3XycgEKl0ZdZ5lploWmSBvA2fhBEfaoI\n" +
+	"cCFi8AySKqLkIoIMPQ/QfrtxrNlL3xWRqX6m9TCWqZcJa3nS4G/Q9uXPoRrVBHr1\n" +
+	"/tbkhmKRRkbzNQGuVcuQGjmbzp1xbRDE5zGWxAK2TsqyMQQYvMDLYXQjDvnxho3f\n" +
+	"sFZJ6YofxmoQDVfigBMi97r1LwAsfFemlXAt/L9ij7GnIe3DhCThosfdqrIXsFh0\n" +
+	"A+O4Fh5d2fyjZWzEfrB6vwpFev8G1BBre4dW6yw3bwKBgQDW1ovJ6tUCB9G8fvD4\n" +
+	"93lKeLjqPaJm2XN4gk654gyxUlNerzKyGJWNrRbXHGEHFHI+jd0vTpQrZX6Ap3Sy\n" +
+	"AxFG6i0ePlZBNWFoRsGJaXzaknIxj5YdQ1jkOn+xsWCJwhGSwfUQ8f2rrATMSHe0\n" +
+	"81oZYJGfcS8wS7b0f6K20dY8BwKBgQDKpmPxf1OJMPL5tUc2nNWAAHNy2tNM3g++\n" +
+	"+4A6uLJi6qmqs/Ab3oZZfjfB7o89IloBwpxDmpFaF5sNCSjAiBzOyZFj74kgrquo\n" +
+	"9RdPQTocj889iM5oivCSjBwwQATmjIoEZHAINhjXHULTCMRWbdL9kZmzhCjOaCXc\n" +
+	"w3vAIx0XiwKBgQDJjG+KV4fMJt/KEeEqAKlGh2kbQAVarcgZl04aLwqvVEeofX52\n" +
+	"/H9ZcbgKyLHyPWlMbDTES9jPuaDrO65Lznrn54u6Ysry1Ax1EmRA8LjUKS1+d3Fi\n" +
+	"NKtxObxQTNL/ihSIdPPfGNddtbyulZHQLbkqM6GKTlnx2iZizFcvYj61AwKBgQC0\n" +
+	"Poi4fQqdBLeomK9NiPNw1XXaG35DaWPR97qXAD5SMuxUE5WmBCe1I8mOKZSnyI0L\n" +
+	"8b+xdaKA4mwbjSD9FlOhLbGulJiARDwUnGJuMNLyIosu7SbB34qYnhxYYii5sxjz\n" +
+	"TS5Eb3Fqq/EK6UpQoYA/3yg5fnwZEpNSp2DDhbfTfwKBgFNVBqUY2Hi6NTy5ljp8\n" +
+	"jyxztpkzYMzSy2oAAet/Lx0IbbvuE9RvgV8zl2RXPbANALIln4/c2D5OvwiVeYrY\n" +
+	"bJ9KNwjMq6Ca5Z0c+oeCNBc8Wq6DpqdWkvuXjbBBufFw20KGxuS2R7eG3K2dE0Tm\n" +
+	"3BTQq6vaTBj9dkCWfEI8f+Ii\n" +
+	"-----END PRIVATE KEY-----\n";
+	var sJWS = KJUR.jws.JWS.sign(null, sHeader, sClaim, key);
+	console.log(sJWS);
+	var XHR = new XMLHttpRequest();
+	var urlEncodedData = "";
+	var urlEncodedDataPairs = [];
+
+	urlEncodedDataPairs.push(encodeURIComponent("grant_type") + '=' + encodeURIComponent("urn:ietf:params:oauth:grant-type:jwt-bearer"));
+	urlEncodedDataPairs.push(encodeURIComponent("assertion") + '=' + encodeURIComponent(sJWS));
+	urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+
+	// We define what will happen if the data are successfully sent
+	XHR.addEventListener('load', function(event) {
+			var response = JSON.parse(XHR.responseText);
+			return response["access_token"];
+			
+	});
+
+	// We define what will happen in case of error
+	XHR.addEventListener('error', function(event) {
+			console.log('Oops! Something went wrong.');
+	});
+
+	XHR.open('POST', 'https://www.googleapis.com/oauth2/v4/token');
+	XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	XHR.send(urlEncodedData);
+
+}
+
+
+
 function trainModel() {
 	var project = "polar-winter-167323";
 
@@ -161,4 +232,3 @@ function getTrainingStatus() {
 			console.log("Training status is: " ,JSON.parse(resp["body"])["trainingStatus"]);
 	});
 }
-
