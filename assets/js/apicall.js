@@ -78,14 +78,12 @@ function makePrediction(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
 	var token = getToken();
-	gapi.auth.setToken({
-	        access_token: token
-	    });
-			
+
+
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
 			'method': "POST",
-
+			'authorization': "Bearer "+token,
 			'body': {
 								"input": {
 									"csvInstance": csvInstance
