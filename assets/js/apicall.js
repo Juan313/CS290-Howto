@@ -73,7 +73,34 @@ if (isAuthorized) {
 function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
+function makePrediction(csvInstance) {
+		var project = "polar-winter-167323";
+		var id = "handwritten digit";
+		var token = getToken();
+		var req = new XMLHttpRequest();
 
+    var payload = {
+
+								"input": {
+									"csvInstance": csvInstance
+							};
+			
+
+    req.open('POST', "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict", true);
+    req.setRequestHeader('Content-Type', 'application/json');
+		req.setRequestHeader('Authorization',token);
+
+    req.addEventListener('load',function(){
+      if(req.status >= 200 && req.status < 400){
+        var response = JSON.parse(req.responseText);
+
+      } else {
+        console.log("Error in network request: " + req.statusText);
+      }});
+    req.send(JSON.stringify(payload));
+    event.preventDefault();
+}
+/*
 function makePrediction(csvInstance) {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
@@ -134,6 +161,7 @@ function makePrediction(csvInstance) {
 			console.log(resp.result.outputLabel);
 	});
 }
+*/
 
 function getToken() {
 	var pHeader = {"alg":"RS256","typ":"JWT"}
