@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-
+		<script type="text/javascript" src="assets/js/290-How-to-7737075276c7.json"></script>
 		<script language="JavaScript" type="text/javascript" src="https://kjur.github.io/jsrsasign/jsrsasign-4.1.4-all-min.js"></script>
 		<script language="JavaScript" type="text/javascript" src="assets/js/json-sans-eval-min.js"></script>
 
@@ -24,13 +24,15 @@
 			var sHeader = JSON.stringify(pHeader);
 			var pClaim = {};
 
-			pClaim.aud = "https://www.googleapis.com/oauth2/v3/token";
-			pClaim.scope = "https://www.googleapis.com/auth/prediction https://www.googleapis.com/auth/cloud-platform";
-			pClaim.iss = "handwritten-digit-recognition@polar-winter-167323.iam.gserviceaccount.com";
+			pClaim.aud = "https://www.googleapis.com/oauth2/v4/token";
+			pClaim.scope = "https://www.googleapis.com/auth/prediction";
+			pClaim.iss = data["client_email"];
 			pClaim.exp = KJUR.jws.IntDate.get("now + 1hour");
 			pClaim.iat = KJUR.jws.IntDate.get("now");
 
 			var sClaim = JSON.stringify(pClaim);
+			var key = data["private_key"];
+			/*
 			var key = "-----BEGIN PRIVATE KEY-----\n" +
 			"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqEO1Lmx2SqlHJ\n" +
 			"HmqnaaekM0OEf0kQ15UbAJrEvEFuor4y/lOaEL3nwo2IFRxQmyd/0WKddB6Y2n4+\n" +
@@ -58,7 +60,7 @@
 			"jyxztpkzYMzSy2oAAet/Lx0IbbvuE9RvgV8zl2RXPbANALIln4/c2D5OvwiVeYrY\n" +
 			"bJ9KNwjMq6Ca5Z0c+oeCNBc8Wq6DpqdWkvuXjbBBufFw20KGxuS2R7eG3K2dE0Tm\n" +
 			"3BTQq6vaTBj9dkCWfEI8f+Ii\n" +
-			"-----END PRIVATE KEY-----\n";
+			"-----END PRIVATE KEY-----\n"; */
 			var sJWS = KJUR.jws.JWS.sign(null, sHeader, sClaim, key);
 			console.log(sJWS);
 			var XHR = new XMLHttpRequest();
@@ -82,7 +84,7 @@
 			    console.log('Oops! Something went wrong.');
 			});
 
-			XHR.open('POST', 'https://www.googleapis.com/oauth2/v3/token');
+			XHR.open('POST', 'https://www.googleapis.com/oauth2/v4/token');
 			XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			XHR.send(urlEncodedData);
 
