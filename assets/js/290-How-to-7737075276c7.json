@@ -1,0 +1,13 @@
+data =
+{
+  "type": "service_account",
+  "project_id": "polar-winter-167323",
+  "private_key_id": "7737075276c7386323b49b807db6913b4692bee4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoHbsuT1SXsY/f\nv85K9GTzguEtaJNBhTpMswOBsofSRb3m/dLtkOICE61WqlVb6OowEe0lpN1rfa5P\nuX0hupeCjNollTkzdE5kkmScAThpusQ0QhlLKIbBJC/RWoFjWg5zFhBvb4dPUngC\nBJ8BUr+8mx1092YNYXPjhsuoULIbbuYHAe2vC4CsoofCO6ciXMpdJc0sT2ay/cjA\nSLcG/LQO53vzV/qmvKh4iYgb5xpWxXsdS06VgNBmiCbvfnFraRPWrqUdtZRjznDB\nk0TkW9CNzqN5Yrq11hBs7+IwiPMk3mx3KY8ZovlhZ/uUSX/RuKVmQq4V2c7rqLkk\n4yXPq90tAgMBAAECggEABlsfZ0wRBO4t5BX2mO9d/LXjSQn13UmJ73nqJUZoa6r+\n18ObbKdoYA8547erY/7tkbUvy9dMlsKI61M2N6b8EO+91KNsZvVb/GHrg1lpdlfd\nEKO6HJUS6Szy0N203Bp8xt2b7/advUI/LsZZc52bCaisp64t0c4wKTdArmOkpDRQ\nteTpIlgKOThctOJdi9uegKG6VJ8qt/MxQLExtZiRVQI4lQUNknYQmZjXEQ5cB0CG\nlYvzBIeeMH23bKGP2bqATXMeMxNTYHMf0iMa40TbZt2kyUODazHGTddQaGagAx1Q\niGKaWf3+wT+2mlgdOrEScQ6pbRGqaAoqq1FSdxQvcQKBgQDTybd7GOjvNYV/NlkU\nZY65TzN6+3CflkkmOyweXs1jNL18cVjssZBJ91mwS80C2VjOFxdqbNYD0Vq+Mos/\n1YC5ZpZrSVnfMVP9F5mEgX0oc2MASU+oWqfjPrm09G620yP+v9VOQszLX639szgB\n4/C6tOOWM3rmDxZn3txz1bmv8QKBgQDLNh+Xx/Fhk1zKAzzN3Wk3IKzeTsgQYSNf\nWS448/4kpj2RWCNPaL92yzi2KtL5LhHMJEqC9pGre76iLHWB4vKawmWYyTkTKecX\nFqZK5inhp63tVEHOEPoahPZGD5gdF40ozqO1FvZWlguGsbMgs/flGalu9XMV1gdv\nNkVUTTS8/QKBgQCs5i4bmb94okolC7p3k12MXWNa0HEmZ+u6AW7IMH8esYzMTkDZ\nozB3oi6fZZKt88CzJ1jfcpDZtw2M3vidmXCoa177oXt0YfH+WkjjS09hOaomLrOQ\nbspHFAtJ9o94RDFLpVK/vHsywR7rUmez62G5Gzn9gnOf48tX6zIwgthAEQKBgCHy\nVKzCVex69ZE5oTqythTjfH1Wo804rPQMrdAN0nLE4pwZISzuzq1FnZ+w37WIoKh9\nl4TxM7x1246z5p1gEC8SMm6njsVIxrXwrq7sbCqqHD/9R1DpPR6Y/5sMl9ikSox6\nmJZz04r7XcmOfeIErnCzLL7Aeg03x94oLsS6cQjxAoGAaaBGnfWz4rUnt+tgcB7O\neFfSFTeNWpgERB8pqZakAgfC7mCNBrmACE3Z6IpLj2ihnR1nt+gvWQ+OVHicBk18\nMWxoTp0NqwVnBI93Y4tn74ZTj/GaZ5D8RZK/P1eYkAcVp4R5Kj5FM2XrPoxUTAHS\neb2MKt4znjF5M9MN5iOQMI4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "handwritten-digit-recognition@polar-winter-167323.iam.gserviceaccount.com",
+  "client_id": "104236192002751306628",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/handwritten-digit-recognition%40polar-winter-167323.iam.gserviceaccount.com"
+}
