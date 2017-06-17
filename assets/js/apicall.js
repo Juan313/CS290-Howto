@@ -62,7 +62,7 @@ if (isAuthorized) {
 	$('#sign-in-or-out-button').html('Sign out');
 	$('#revoke-access-button').css('display', 'inline-block');
 	$('#auth-status').html('');
-	// makePrediction();
+	 makePrediction();
 } else {
 	$('#sign-in-or-out-button').html('Sign In/Authorize');
 	$('#revoke-access-button').css('display', 'none');
@@ -73,6 +73,7 @@ if (isAuthorized) {
 function updateSigninStatus(isSignedIn) {
 setSigninStatus();
 }
+/*
 function makePrediction(csvInstance) {
 		var project = "polar-winter-167323";
 		var id = "handwritten digit";
@@ -84,7 +85,7 @@ function makePrediction(csvInstance) {
 								"input": {
 									"csvInstance": csvInstance
 							};
-			
+
 
     req.open('POST', "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict", true);
     req.setRequestHeader('Content-Type', 'application/json');
@@ -100,12 +101,13 @@ function makePrediction(csvInstance) {
     req.send(JSON.stringify(payload));
     event.preventDefault();
 }
-/*
-function makePrediction(csvInstance) {
+*/
+
+function makePrediction() {
 	var project = "polar-winter-167323";
 	var id = "handwritten digit";
 	var token = getToken();
-
+	var csvInstance = getCSV();
 
 	gapi.client.request({
 			'path': "https://www.googleapis.com/prediction/v1.6/projects/"+project+"/trainedmodels/"+id+"/predict",
@@ -161,7 +163,7 @@ function makePrediction(csvInstance) {
 			console.log(resp.result.outputLabel);
 	});
 }
-*/
+
 
 function getToken() {
 	var pHeader = {"alg":"RS256","typ":"JWT"}
