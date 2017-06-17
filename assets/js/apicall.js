@@ -174,7 +174,7 @@ function getToken() {
 	"3BTQq6vaTBj9dkCWfEI8f+Ii\n" +
 	"-----END PRIVATE KEY-----\n";
 	var sJWS = KJUR.jws.JWS.sign(null, sHeader, sClaim, key);
-	console.log(sJWS);
+
 	var XHR = new XMLHttpRequest();
 	var urlEncodedData = "";
 	var urlEncodedDataPairs = [];
@@ -186,8 +186,9 @@ function getToken() {
 	// We define what will happen if the data are successfully sent
 	XHR.addEventListener('load', function(event) {
 			var response = JSON.parse(XHR.responseText);
+			console.log(response["access_token"]);
 			return response["access_token"];
-			
+
 	});
 
 	// We define what will happen in case of error
